@@ -15,7 +15,7 @@ public class RqTest {
     }
 
     @Test
-    @DisplayName(value = "명령: 삭제?id=1 일때, rq.getActionName() - 수정")
+    @DisplayName(value = "명령: tnwjd?id=1 일때, rq.getActionName() - 수정")
     void t2(){
 
         Rq rq = new Rq("수정?id=1");
@@ -75,6 +75,16 @@ public class RqTest {
         Rq rq = new Rq("목록?keword=자바&keywordType=title&page=1");
         String rst = rq.getParam("keywordType");
         assertThat(rst).isEqualTo("title");
+    }
+
+    @Test
+    @DisplayName(value = "명령: 삭제?id=aaa 일때, rq.getParamAsInt(\"id\", -1) -> -1")
+    void t9() {
+
+        Rq rq = new Rq("삭제?id=aaa");
+        int rst = rq.getParamAsInt("id", -1);
+        assertThat(rst).isEqualTo(-1);
+
     }
 
 }
