@@ -21,6 +21,11 @@ public class Rq {
         String params = cmd.split("\\?")[1];
 
         for (String param : params.split("&")) {
+            // id= 처럼 = 뒤에 값이 없는 경우
+            String[] paramBits = param.split("=");
+            if (paramBits.length == 1) {
+                continue;
+            }
             String paramKey = param.split("=")[0];
             String paramValue = param.split("=")[1];
             if (paramKey.equals(key)) {
