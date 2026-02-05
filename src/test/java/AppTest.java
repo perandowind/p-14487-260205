@@ -14,4 +14,13 @@ public class AppTest {
 
         assertThat(rst).isEqualTo(3);
     }
+
+    @Test
+    @DisplayName("10 + 20 = 30") // t2가 실패 -> 내가 제대로 구현하지 못했음을 확인 가능
+    void t2() {
+        App app = new App();
+        int rst = app.plus(10, 20);
+
+        assertThat(rst).isEqualTo(30);
+    }
 }
