@@ -15,11 +15,20 @@ public class RqTest {
     }
 
     @Test
-    @DisplayName(value = "rq.getActionName() - 수정")
+    @DisplayName(value = "명령: 삭제?id=1 일때, rq.getActionName() - 수정")
     void t2(){
 
         Rq rq = new Rq("수정?id=1");
         String actionName = rq.getActionName();
         assertThat(actionName).isEqualTo("수정");
+    }
+
+    @Test
+    @DisplayName(value = "명령: 수정?id=1 일때, rq.getParam(\"id\") -> 1")
+    void t3(){
+
+        Rq rq = new Rq("수정?id=1");
+        int rst = rq.getParam("id");
+        assertThat(rst).isEqualTo(1);
     }
 }
