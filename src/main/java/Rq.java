@@ -20,11 +20,9 @@ public class Rq {
 
         String param = cmd.split("\\?")[1];
         String paramKey = param.split("=")[0];
-        if (paramKey.equals("keyword")) {
-            return "자바";
-        }
-        if (paramKey.equals("keywordType")) {
-            return "title";
+        String paramValue = param.split("=")[1];
+        if (paramKey.equals(key)) {
+            return paramValue;
         }
 
         return "";
